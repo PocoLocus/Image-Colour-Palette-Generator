@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<form method="POST" action="{{ url_for('home') }}" enctype="multipart/form-data">
+    {{ form.csrf_token }}
+    {{ form.image.label }}
+    <br>
+    <div class="image-container">
+        {{ form.image }}
+    </div>
+    <br>
+    <br>
+    {{ form.submit }}
+</form>
+
+{% if image_path %}
+    <h2>Image Preview</h2>
+    <img src="{{ image_path }}" alt="Image Preview" width="300">
+{% endif %}
+
+
+{% if list %}
+<h2>Dominant Colors</h2>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Color</th>
+        <th>Hex Code</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for hex_code in list %}
+    <tr>
+        <td style="background-color: {{ hex_code }};"></td>
+        <td>{{ hex_code }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,7 @@
+.image-container {
+    border: 1px solid #ccc; /* Creates a light gray box */
+    padding: 10px;          /* Adds space inside the box */
+    margin-right: 20px;     /* Adds space on the right side */
+    display: inline-block;  /* Keeps the container inline with other elements */
+    border-radius: 5px;     /* Optional: Adds rounded corners to the box */
+}
